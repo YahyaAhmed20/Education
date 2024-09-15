@@ -1,10 +1,16 @@
 from django.shortcuts import render
-
-# Create your views here.
-
-
+from .models import Slide, Course, Testimonial, Skill
 
 def home(request):
-    # Fetch the job list
-  
-    return render(request, 'home/home.html')
+    slides = Slide.objects.order_by('order')
+    courses = Course.objects.order_by('order')
+    testimonials = Testimonial.objects.all()
+    skills = Skill.objects.all()
+
+    context = {
+        'slides': slides,
+        'courses': courses,
+        'testimonials': testimonials,
+        'skills': skills,
+    }
+    return render(request, 'home/home.html',context)

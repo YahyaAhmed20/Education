@@ -15,103 +15,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="portfolio-categ filter">
-                    <li class="all active"><a href="#">All</a></li>
-                    <li class="web"><a href="#" title="">Web design</a></li>
-                    <li class="icon"><a href="#" title="">Mobile App</a></li>
-                    <li class="graphic"><a href="#" title="">UI design</a></li>
+                    <li class="all active"><a href="#" data-filter="*">All</a></li>
+                    {% for category in categories %}
+                        <li class="{{ category.name }}"><a href="#" data-filter=".{{ category.name }}">{{ category.name }}</a></li>
+                    {% endfor %}
                 </ul>
                 <div class="clearfix"></div>
                 <div class="row">
                     <section id="projects">
                         <ul id="thumbs" class="portfolio">
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/1.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/1.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/2.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/2.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="graphic">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/3.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/3.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/4.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/4.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 photography" data-id="id-4" data-type="web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/5.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/5.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 photography" data-id="id-5" data-type="icon">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/6.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/6.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/7.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/7.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="graphic">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="{% static 'img/works/8.jpg' %}">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/8.jpg' %}" alt="">
-                            </li>
-                            <!-- End Item Project -->
+                            {% for item in items %}
+                                <li class="item-thumbs col-lg-3 {{ item.category.name }}" data-id="id-{{ forloop.counter }}" data-type="{{ item.category.name }}">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="{{ item.title }}" href="{{ item.image.url }}">
+                                        <span class="overlay-img"></span>
+                                        <span class="overlay-img-thumb"><i class="icon-info-blocks fa fa-code"></i></span>
+                                    </a>
+                                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                                </li>
+                            {% endfor %}
                         </ul>
                     </section>
                 </div>
