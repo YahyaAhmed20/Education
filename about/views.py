@@ -1,7 +1,11 @@
+# views.py
 from django.shortcuts import render
+from .models import TeamMember, AboutUsSection
 
-# Create your views here.
 def about(request):
     # Fetch the job list
-
-    return render(request, 'about/about.html')
+    team_members = TeamMember.objects.all()
+    about_sections = AboutUsSection.objects.all()   
+    return render(request, 'about/about.html', {
+        'team_members': team_members,
+        'about_sections': about_sections})
