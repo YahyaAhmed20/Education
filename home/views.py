@@ -1,7 +1,9 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Skill
+from .models import Course
 
 def home(request):
-  
-    return render(request, 'home/home.html')
+    skills = Skill.objects.all()
+    courses = Course.objects.filter(is_active=True)
+
+    return render(request, 'home/home.html', {'skills': skills,'courses': courses})

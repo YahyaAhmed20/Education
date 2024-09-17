@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'portfolio',
     'pricing',
     'contact',
+    'signin',
+    'signup',
 ]
 
 MIDDLEWARE = [

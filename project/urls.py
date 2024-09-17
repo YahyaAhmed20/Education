@@ -28,5 +28,7 @@ urlpatterns = [
         path('portfolio/',include('portfolio.urls',namespace='portfolio')),
         path('pricing/',include('pricing.urls',namespace='pricing')),
         path('contact-us/',include('contact.urls',namespace='contact')),
+        path('signin/',include('signin.urls',namespace='signin')),
+        path('signup/',include('signup.urls',namespace='signup')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
