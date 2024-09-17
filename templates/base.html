@@ -48,12 +48,6 @@
 	<li class="{% if request.path == '/contact/' %}active{% elif request.path == '/contact-us/' %}active{% endif %}">
 		<a href="{% url 'contact:contact' %}">Contact</a>
 	</li>
-	<li class="{% if request.path == '/sign-in/' %}active{% endif %}">
-		<a href="{% url 'signin:signin' %}">Sign In</a>
-	</li>
-	<li class="{% if request.path == '/sign-up/' %}active{% endif %}">
-		<a href="{% url 'signup:signup' %}">Sign Up</a>
-	</li>
 	
 					
                     </ul>
